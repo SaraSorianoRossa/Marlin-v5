@@ -1,0 +1,110 @@
+[package]
+edition = "2018"
+name = "marlin-v5"
+version = "0.3.0"
+include = ["Cargo.toml", "src", "README.md", "LICENSE-APACHE", "LICENSE-MIT"]
+description = "A library for the Marlin preprocessing zkSNARK"
+documentation = "https://docs.rs/ark-marlin/"
+keywords = ["cryptography", "commitments", "zkSNARK"]
+categories = ["cryptography"]
+license = "MIT/Apache-2.0"
+repository = "https://github.com/arkworks-rs/marlin"
+[profile.dev]
+opt-level = 0
+panic = "abort"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+debug = true
+panic = "abort"
+incremental = true
+
+[profile.test]
+opt-level = 3
+debug = true
+debug-assertions = true
+incremental = true
+
+[[bench]]
+name = "marlin-benches"
+path = "benches/bench.rs"
+harness = false
+required-features = ["std"]
+[dependencies.ark-ff]
+version = "^0.3.0"
+default-features = false
+
+[dependencies.ark-poly]
+version = "^0.3.0"
+default-features = false
+
+[dependencies.ark-poly-commit-new]
+git = "https://github.com/SaraSorianoRossa/Poly-Commit.git"
+default-features = false
+
+[dependencies.ark-relations]
+version = "^0.3.0"
+default-features = false
+
+[dependencies.ark-serialize]
+version = "^0.3.0"
+features = ["derive"]
+default-features = false
+
+[dependencies.ark-std]
+version = "^0.3.0"
+default-features = false
+
+[dependencies.derivative]
+version = "2"
+features = ["use_core"]
+
+[dependencies.digest]
+version = "0.9"
+
+[dependencies.rand_chacha]
+version = "0.3.0"
+default-features = false
+
+[dependencies.rayon]
+version = "1"
+optional = true
+
+[dependencies.nalgebra]
+version = "0.29.0"
+
+[dev-dependencies.ark-bls12-381]
+version = "^0.3.0"
+features = ["curve"]
+default-features = false
+
+[dev-dependencies.ark-mnt4-298]
+version = "^0.3.0"
+features = ["r1cs", "curve"]
+default-features = false
+
+[dev-dependencies.ark-mnt4-753]
+version = "^0.3.0"
+features = ["r1cs", "curve"]
+default-features = false
+
+[dev-dependencies.ark-mnt6-298]
+version = "^0.3.0"
+features = ["r1cs"]
+default-features = false
+
+[dev-dependencies.ark-mnt6-753]
+version = "^0.3.0"
+features = ["r1cs"]
+default-features = false
+
+[dev-dependencies.blake2]
+version = "0.9"
+default-features = false
+
+[features]
+default = ["std", "parallel"]
+parallel = ["std", "ark-ff/parallel", "ark-poly/parallel", "ark-std/parallel", "ark-poly-commit-new/parallel", "rayon"]
+print-trace = ["ark-std/print-trace"]
+std = ["ark-ff/std", "ark-poly/std", "ark-relations/std", "ark-std/std", "ark-serialize/std", "ark-poly-commit-new/std"]
