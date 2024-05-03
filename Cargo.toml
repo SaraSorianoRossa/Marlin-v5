@@ -1,6 +1,6 @@
 [package]
 edition = "2018"
-name = "marlin-v5"
+name = "new-inner"
 version = "0.3.0"
 include = ["Cargo.toml", "src", "README.md", "LICENSE-APACHE", "LICENSE-MIT"]
 description = "A library for the Marlin preprocessing zkSNARK"
