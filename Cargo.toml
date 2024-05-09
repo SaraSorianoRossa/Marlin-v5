@@ -1,14 +1,12 @@
 [package]
-edition = "2018"
+edition = "2024"
 name = "new-inner"
 version = "0.3.0"
-include = ["Cargo.toml", "src", "README.md", "LICENSE-APACHE", "LICENSE-MIT"]
+include = ["Cargo.toml", "src", "README.md"]
 description = "A library for the Marlin preprocessing zkSNARK"
 documentation = "https://docs.rs/ark-marlin/"
 keywords = ["cryptography", "commitments", "zkSNARK"]
 categories = ["cryptography"]
-license = "MIT/Apache-2.0"
-repository = "https://github.com/arkworks-rs/marlin"
 [profile.dev]
 opt-level = 0
 panic = "abort"
