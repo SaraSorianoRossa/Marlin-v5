@@ -1,5 +1,5 @@
 [package]
-edition = "2024"
+edition = "2018"
 name = "new-inner"
 version = "0.3.0"
 include = ["Cargo.toml", "src", "README.md"]
