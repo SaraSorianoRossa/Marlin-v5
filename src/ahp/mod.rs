@@ -2,7 +2,7 @@ use crate::{String, ToString, Vec};
 use ark_ff::{Field, PrimeField};
 use ark_poly::univariate::DensePolynomial;
 use ark_poly::{EvaluationDomain, GeneralEvaluationDomain};
-use ark_poly_commit_new::{LCTerm, LinearCombination};
+use ark_poly_commit::{LCTerm, LinearCombination};
 use ark_relations::r1cs::SynthesisError;
 use ark_std::{borrow::Borrow, cfg_iter_mut, format, marker::PhantomData, vec};
 
@@ -18,7 +18,7 @@ pub mod prover;
 pub mod verifier;
 
 /// A labeled DensePolynomial with coefficients over `F`
-pub type LabeledPolynomial<F> = ark_poly_commit_new::LabeledPolynomial<F, DensePolynomial<F>>;
+pub type LabeledPolynomial<F> = ark_poly_commit::LabeledPolynomial<F, DensePolynomial<F>>;
 
 /// The algebraic holographic proof defined in [CHMMVW19](https://eprint.iacr.org/2019/1047).
 /// Currently, this AHP only supports inputs of size one
@@ -234,7 +234,7 @@ pub trait EvaluationsProvider<F: Field> {
     fn get_lc_eval(&self, lc: &LinearCombination<F>, point: F) -> Result<F, Error>;
 }
 
-impl<'a, F: Field> EvaluationsProvider<F> for ark_poly_commit_new::Evaluations<F, F> {
+impl<'a, F: Field> EvaluationsProvider<F> for ark_poly_commit::Evaluations<F, F> {
     fn get_lc_eval(&self, lc: &LinearCombination<F>, point: F) -> Result<F, Error> {
         let key = (lc.label.clone(), point);
         self.get(&key)

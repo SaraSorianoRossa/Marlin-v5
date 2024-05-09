@@ -3,7 +3,7 @@ use crate::ahp::prover::ProverMsg;
 use crate::Vec;
 use ark_ff::PrimeField;
 use ark_poly::univariate::DensePolynomial;
-use ark_poly_commit_new::{BatchLCProof, PolynomialCommitment};
+use ark_poly_commit::{BatchLCProof, PolynomialCommitment};
 use ark_serialize::{CanonicalDeserialize, CanonicalSerialize, SerializationError};
 use ark_std::{
     format,
@@ -127,7 +127,7 @@ impl<F: PrimeField, PC: PolynomialCommitment<F, DensePolynomial<F>>> Proof<F, PC
 
     /// Prints information about the size of the proof.
     pub fn print_size_info(&self) {
-        use ark_poly_commit_new::{PCCommitment, PCProof};
+        use ark_poly_commit::{PCCommitment, PCProof};
 
         let size_of_fe_in_bytes = F::zero().into_repr().as_ref().len() * 8;
         let mut num_comms_without_degree_bounds = 0;

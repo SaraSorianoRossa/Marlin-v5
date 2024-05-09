@@ -6,7 +6,7 @@ use ark_std::rand::RngCore;
 
 use ark_ff::PrimeField;
 use ark_poly::{EvaluationDomain, GeneralEvaluationDomain};
-use ark_poly_commit_new::QuerySet;
+use ark_poly_commit::QuerySet;
 
 /// State of the AHP verifier
 pub struct VerifierState<F: PrimeField> {

@@ -20,8 +20,8 @@ extern crate ark_std;
 
 use ark_ff::{to_bytes, PrimeField, UniformRand};
 use ark_poly::{univariate::DensePolynomial, EvaluationDomain, GeneralEvaluationDomain};
-use ark_poly_commit_new::Evaluations;
-use ark_poly_commit_new::{LabeledCommitment, PCUniversalParams, PolynomialCommitment};
+use ark_poly_commit::Evaluations;
+use ark_poly_commit::{LabeledCommitment, PCUniversalParams, PolynomialCommitment};
 use ark_relations::r1cs::ConstraintSynthesizer;
 use ark_std::rand::RngCore;
 use digest::Digest;
@@ -553,7 +553,7 @@ impl<F: PrimeField, PC: PolynomialCommitment<F, DensePolynomial<F>>, D: Digest> 
         )
         .map_err(Error::from_pc_err);
 
-        let pc_proof: ark_poly_commit_new::BatchLCProof<F, DensePolynomial<F>, _> = match pc_proof {
+        let pc_proof: ark_poly_commit::BatchLCProof<F, DensePolynomial<F>, _> = match pc_proof {
             Ok(proof) => proof,
             Err(err) => {
                 panic!("Error en second_comms: {:?}", err);
