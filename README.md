@@ -1,5 +1,5 @@
 ## Descripción general
-Esta implementación viene dada a través de agreagar una nueva fase en la [última versión](https://github.com/SaraSorianoRossa/Marlin-v4) del [algoritmo de Marlin](https://github.com/arkworks-rs/marlin). 
+Esta implementación viene dada a través de agregar una nueva fase en la [última versión](https://github.com/SaraSorianoRossa/Marlin-v4) del [algoritmo de Marlin](https://github.com/arkworks-rs/marlin). 
 En esta implementación se ha creado un nuevo proceso de verificar que la apertura de $t(X)$ es correcta. 
 Para ello se han creado diferentes funciones en ``lib.rs``, ``prover.rs``, ``verifier.rs`` y ``mod.rs``, logrando proporcionarle la información necesaria al verificador para que pueda estar seguro de que no se comete ningún tipo de trampas.
 Este proceso ha estado implementado en la última versión ya que a través de los resultados se ha visto que es la más eficiente, aún así podría crearse para cualquiera de las versiones creadas.
@@ -17,3 +17,9 @@ En esta implementación, como en el resto, hay una serie de funciones para compr
 ```sh
 cargo test
 ```
+## Todas las implementaciones
+1. [Versión original](https://github.com/SaraSorianoRossa/Marlin-v1)
+2. [Primera modificación](https://github.com/SaraSorianoRossa/Marlin-v2)
+3. [Segunda modificación](https://github.com/SaraSorianoRossa/Marlin-v3)
+4. [Tercera modificación](https://github.com/SaraSorianoRossa/Marlin-v4)
+5. [Nuevo proceso inner](https://github.com/SaraSorianoRossa/New-inner)
